@@ -8,6 +8,7 @@ import City from './components/City';
 import houeses from './components/houeses';
 import createlist from './components/createlist';
 import Detaildescription from './components/Detaildescription';
+import emptyimg from './components/emptyimg';
 
 
 
@@ -20,7 +21,10 @@ const routes=[
     {path: '/City',component: City},
     {path:'/houeses',component:houeses},
     {path:'/createlist',component:createlist},
-    {path:'/Detaildescription/:id',component:Detaildescription}
+    {path:'/Detaildescription/:id',component:Detaildescription},
+    {path:'/emptyimg',component:emptyimg},
+  
+
 
 
     

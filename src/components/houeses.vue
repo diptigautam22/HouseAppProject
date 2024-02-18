@@ -92,20 +92,31 @@
                     this.houses=response.data;                 
                             
             },
-            searchdata()
+           async searchdata()
             { 
-               
-              const fliterdata=this.houses.filter(item=>{
-                return item.location.city.includes(this.city1);
-              });
-                 if(fliterdata)
-                 {
-                this.houses=fliterdata;
-                 }
-                 else{
-                   window.location.replace('emptyimg.vue');
-                 }
+              const apiurl='https://api.intern.d-tt.nl/api/houses';
+                const apikey='e32NSYlCc-iK04MrgfuJHL6DXO1sjWyh';   
+                const response=await axios.get(apiurl, {
+                                     headers: {
+                                      'Content-Type': 'application/json',
+                                      'X-Api-Key': apikey,
+                                     },
+                                     });
+                    this.houses=response.data;        
+              const fliterdata=this.houses.filter(item=>item.location.city==this.city1);
                 
+                if(fliterdata.length>0)
+                {
+                  this.houses=fliterdata;
+                  console.warn(this.houses);
+                }
+                else
+                {
+                 this.$router.push('/emptyimg');
+                }
+              
+                
+            
                   
                },
 
