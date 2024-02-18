@@ -5,5 +5,5 @@ module.exports = defineConfig({
   devServer: {
   proxy: 'https://api.intern.d-tt.nl/api/houses',
   },
-  
+  base: "\HomeAppProject",
 });
